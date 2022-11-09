@@ -1,0 +1,16 @@
+server:
+  servlet:
+    context-path: /mipla2
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mipla
+    driver-class-name: org.postgresql.Driver
+    username: mipla
+    password: mipla
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+mipla2:
+  config:
+    storage-dir: "C:\\data\\m2\\storage"
