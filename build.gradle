@@ -69,7 +69,7 @@ dependencies {
 }
 
 jar {
-	archiveBaseName = 'flex'
+	archiveBaseName = 'quuty'
 	archiveVersion = '1.0.0'
 }
 
