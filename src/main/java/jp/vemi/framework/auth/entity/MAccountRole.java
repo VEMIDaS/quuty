@@ -11,6 +11,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
@@ -22,6 +23,8 @@ public class MAccountRole {
   PK pk;
 
   @Embeddable
+  @Data
+  @Builder
   public static class PK implements Serializable {
     @Column
     String accountId;
