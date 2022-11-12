@@ -21,7 +21,8 @@ import jp.vemi.mirel.foundation.web.api.dto.ApiResponse;
  * カラム取得.<br/>
  */
 @Service
-@Generated(value = {"jp.vemi.ste.domain.engine.TemplateEngineProcessor"}, comments = "Generated from /mirel/service:220309A")
+@Generated(value = {
+        "jp.vemi.ste.domain.engine.TemplateEngineProcessor" }, comments = "Generated from /mirel/service:220309A")
 public class GetColumnsApi extends AbstractQuutyApi {
 
     @Autowired
@@ -35,10 +36,7 @@ public class GetColumnsApi extends AbstractQuutyApi {
         }
 
         GetColumnsParameter parameter = GetColumnsParameter.builder()
-                // mapping //
-                // sample
-                // .entityId((String) requestContent.get("entityId"))
-                // build
+                .projectId((String) request.get("projectId"))
                 .build();
 
         ApiResponse<?> response = service.invoke(ApiRequest.<GetColumnsParameter>builder().model(parameter).build());
