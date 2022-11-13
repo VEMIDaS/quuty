@@ -5,11 +5,13 @@ package jp.vemi.mirel.apps.quuty.domain.service;
 
 import javax.annotation.Generated;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import jp.vemi.mirel.apps.quuty.domain.dto.GetColumnsParameter;
 import jp.vemi.mirel.apps.quuty.domain.dto.GetColumnsResult;
+import jp.vemi.mirel.apps.quuty.domain.facade.QuutyWorkitemEngine;
 import jp.vemi.mirel.foundation.web.api.dto.ApiRequest;
 import jp.vemi.mirel.foundation.web.api.dto.ApiResponse;
 
@@ -21,15 +23,19 @@ import jp.vemi.mirel.foundation.web.api.dto.ApiResponse;
 @Generated(value = {"jp.vemi.ste.domain.engine.TemplateEngineProcessor"}, comments = "Generated from /mirel/service:220309A")
 public class GetColumnsServiceImp implements GetColumnsService {
 
+    /** {@link QuutyWorkitemEngine} */
+    @Autowired()
+    QuutyWorkitemEngine quutyWorkitemEngine;
+
     /**
      * {@inheritDoc}
      */
     @Override
     public ApiResponse<GetColumnsResult> invoke(ApiRequest<GetColumnsParameter> parameter) {
 
-        ApiResponse<GetColumnsResult> resp = ApiResponse.<GetColumnsResult>builder().build();
+        quutyWorkitemEngine.getColuimns(parameter.getModel().getProjectId());
 
-        // TODO implementation.
+        ApiResponse<GetColumnsResult> resp = ApiResponse.<GetColumnsResult>builder().build();
         resp.setModel(GetColumnsResult.builder().build());
 
         return resp;
